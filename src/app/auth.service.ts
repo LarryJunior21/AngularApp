@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken, Inject } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -18,6 +18,11 @@ export class AuthService {
   }
 
   writeName(name: string) {
+    // Ensure previous value is cleared
+    this.name.next('');
+    this.loggedIn.next(false);
+
+    // Sets new data
     this.name.next(name);
     this.loggedIn.next(true);
   }

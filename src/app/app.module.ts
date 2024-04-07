@@ -10,6 +10,7 @@ import { TitleComponent } from './title/title.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { AuthService } from './auth.service';
+import { BrowserStorageService } from './storage.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { AuthService } from './auth.service';
     LandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [provideClientHydration(), AuthService],
+  providers: [provideClientHydration(), AuthService, BrowserStorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
