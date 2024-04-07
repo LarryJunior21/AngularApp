@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
+import { AuthService } from './auth.service';
+import { BrowserStorageService } from './storage.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { LandingComponent } from './landing/landing.component';
     LandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), AuthService, BrowserStorageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
