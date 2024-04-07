@@ -1,0 +1,11 @@
+$color: white;
+$size: 50px;
+
+* {
+    font-family: 'Roboto', Arial, sans-serif;
+  }
+
+.Title {
+    color: $color;
+    font-size: $size;
+}
