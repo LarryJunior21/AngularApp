@@ -11,6 +11,8 @@ import { BrowserStorageService } from '../storage.service';
 })
 export class LoginComponent {
   @ViewChild('name') nameInputRef!: ElementRef;
+  disabled = true;
+  isLoggedIn$ = false;
 
   constructor(
     private router: Router,
@@ -19,10 +21,13 @@ export class LoginComponent {
   ) {}
 
   ngOnInit() {
+    this.auth.getIsLoggedIn().subscribe(logged => (this.isLoggedIn$ = logged));
+
     if (this.nameInputRef) this.nameInputRef.nativeElement.value = '';
+    if (this.isLoggedIn$) this.router.navigate(['']);
   }
 
-  doLogin(value: string): void {
+  doLogin$(value: string): void {
     this.auth.writeName(value);
 
     // Navigate to landing page after login
@@ -33,5 +38,9 @@ export class LoginComponent {
       isLoggedIn: true,
     };
     this.storage.set('storedName', JSON.stringify(obj));
+  }
+
+  checkEmpty(value: string): void {
+    this.disabled = value === '' ? true : false;
   }
 }

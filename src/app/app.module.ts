@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { AuthService } from './auth.service';
 import { BrowserStorageService } from './storage.service';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,14 @@ import { BrowserStorageService } from './storage.service';
     LoginComponent,
     LandingComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+  ],
   providers: [provideClientHydration(), AuthService, BrowserStorageService],
   bootstrap: [AppComponent],
 })

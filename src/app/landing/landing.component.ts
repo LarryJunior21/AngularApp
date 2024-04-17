@@ -27,11 +27,16 @@ export class LandingComponent {
   }
 
   checkLoggedIn() {
+    console.log(this.isLoggedIn, this.name);
     const storedName = this.storage.get('storedName');
     if (storedName) {
       const data = JSON.parse(storedName);
       this.name = data.name;
       this.isLoggedIn = data.isLoggedIn;
     }
+  }
+
+  doLogout() {
+    this.auth.logout();
   }
 }

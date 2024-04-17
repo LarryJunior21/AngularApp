@@ -1,0 +1,9 @@
+@import '../../ui/variables';
+
+.box {
+  width: 20rem;
+  height: 8rem;
+  background-color: transparent;
+  border: $secondary-color 0.35rem solid;
+  border-radius: 0.5rem;
+}
